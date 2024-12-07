@@ -1,0 +1,117 @@
+.box-canvas {
+  position: absolute;
+  margin: auto;
+  display: block;
+  margin-bottom: 8%;
+  width: 100%;
+  height: 100%;
+  animation: floatUp 5s linear forwards;
+  opacity: 0.5;
+  top: 0;
+  left: 50%;
+  z-index: -1;
+}
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh);
+    display: block;
+  }
+
+  99% {
+    transform: translateY(-480px);
+    display: block;
+  }
+  100% {
+    display: none;
+    transform: translateY(-480px);
+  }
+}
+
+.red {
+  --balloon-color: var(--red);
+  --highlight-color: #fc9999;
+  --top-initial: 40px;
+  --string-angle: -20deg;
+}
+
+.yellow {
+  --balloon-color: #f2f24b;
+  --highlight-color: #e5e570;
+  --top-initial: 80px;
+  --left-initial: 50px;
+  --string-angle: -8deg;
+}
+
+.green {
+  --balloon-color: var(--green);
+  --highlight-color: #bad6d3;
+  --top-initial: 0;
+  --left-initial: 80px;
+  --string-angle: 1deg;
+}
+
+.blue {
+  --balloon-color: dodgerblue;
+  --highlight-color: #6ab5fc;
+  --left-initial: 100px;
+  --top-initial: 110px;
+  --string-angle: 10deg;
+}
+
+.orange {
+  --balloon-color: orange;
+  --highlight-color: #f9b94a;
+  --left-initial: 140px;
+  --top-initial: 50px;
+  --string-angle: 18deg;
+}
+
+.balloon-wrapper {
+  position: absolute;
+  left: var(--left-initial);
+  top: var(--top-initial);
+  width: 85px;
+}
+
+.string {
+  position: absolute;
+  top: 110px;
+  left: 42px;
+  transform: rotate(var(--string-angle));
+  transform-origin: top left;
+  width: 2px;
+  height: 250px;
+  background: #50535e;
+}
+
+.balloon {
+  position: absolute;
+  width: 85px;
+  height: 100px;
+  background: var(--balloon-color);
+  border-radius: 50%;
+}
+
+.balloon::before {
+  content: "";
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  width: 15px;
+  height: 35px;
+  box-shadow: 5px 0 0 var(--highlight-color);
+  border-radius: 50%;
+  transform: rotate(-30deg);
+}
+
+.balloon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -15px;
+  width: 25px;
+  height: 20px;
+  background: var(--balloon-color);
+  clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+}

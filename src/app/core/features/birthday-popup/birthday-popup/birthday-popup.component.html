@@ -1,0 +1,105 @@
+<section id="birthday-popup" class="overflow-hidden" style="min-height: 100vh">
+  <!-- Fire Works Animation -->
+  <app-fire-works></app-fire-works>
+
+  <!-- Content Popup -->
+  <div class="overflow-y-auto h-100">
+    <div class="container h-100">
+      <div
+        class="d-flex justify-content-center h-100 align-items-start align-items-md-center"
+      >
+        <div class="p-5 shadow-lg rounded-4 Boxes-Container-dropShadow my-5">
+          <h2 class="fs-1 text-center my-5">Choose Your Birthday Gift!</h2>
+          <div
+            [ngClass]="{ 'd-none': isGiftReceived }"
+            class="row g-5 justify-content-center"
+          >
+            <div class="col-6 col-md-3">
+              <div
+                (click)="onClickHideAll()"
+                #giftBox
+                class="cursor-pointer bg-main-hover"
+              >
+                <app-gift-box></app-gift-box>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div
+                (click)="onClickHideAll()"
+                #giftBox
+                class="cursor-pointer bg-main-hover"
+              >
+                <app-gift-box></app-gift-box>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div
+                (click)="onClickHideAll()"
+                #giftBox
+                class="cursor-pointer bg-main-hover"
+              >
+                <app-gift-box></app-gift-box>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div
+                (click)="onClickHideAll()"
+                #giftBox
+                class="cursor-pointer bg-main-hover"
+              >
+                <app-gift-box></app-gift-box>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div
+                (click)="onClickHideAll()"
+                #giftBox
+                class="cursor-pointer bg-main-hover"
+              >
+                <app-gift-box></app-gift-box>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div
+                (click)="onClickHideAll()"
+                #giftBox
+                class="cursor-pointer bg-main-hover"
+              >
+                <app-gift-box></app-gift-box>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div
+                (click)="onClickHideAll()"
+                #giftBox
+                class="cursor-pointer bg-main-hover"
+              >
+                <app-gift-box></app-gift-box>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div
+                (click)="onClickHideAll()"
+                #giftBox
+                class="cursor-pointer bg-main-hover"
+              >
+                <app-gift-box></app-gift-box>
+              </div>
+            </div>
+          </div>
+          <div [ngClass]="{ 'd-block': isGiftReceived }">
+            <div
+              #gift
+              class="cursor-pointer bg-main-hover Box-show-Animation d-none"
+            >
+              <app-gift-box-animate></app-gift-box-animate>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ballon Animation -->
+  <app-ballon-popup></app-ballon-popup>
+</section>
