@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import confetti from 'canvas-confetti';
 import lottie from 'lottie-web';
 
 @Component({
@@ -40,5 +41,35 @@ export class GiftBoxAnimateComponent {
     if (this.animation) {
       this.animation.play(); // Play the animation when called
     }
+    this.startConfetti();
+  }
+
+  colors = ['#bb0000', '#ffffff']; // Define the colors
+
+  startConfetti() {
+    const end = Date.now() + 15 * 1000; // Run for 15 seconds
+    const colors = this.colors; // Local reference for use inside frame()
+
+    // Recursive function for animation frames
+    (function frame() {
+      confetti({
+        particleCount: 2,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 },
+        colors: colors,
+      });
+      confetti({
+        particleCount: 2,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 },
+        colors: colors,
+      });
+
+      if (Date.now() < end) {
+        requestAnimationFrame(frame); // Continue the animation
+      }
+    })();
   }
 }
